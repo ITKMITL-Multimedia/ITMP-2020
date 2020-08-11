@@ -16,6 +16,7 @@
 		<h3 v-for="i in r">
 			{{n}} x {{i}} = {{x(i)}}
 		</h3>
+		<h4>ผลรวม {{sum(row)}}</h4>
 	</div>
 
 	<script>
@@ -29,12 +30,19 @@
 			methods: {
 				x: function(row) {
 					return this.n*row
+				},
+				sum: function(row) {
+					all_sum = 0
+					for (var i = 1; i <= row; i++) {
+						all_sum += (this.n*i)
+					}
+					return all_sum
 				}
 			},
 			computed: {
 				r: function() {
 					return parseInt(this.row)
-				}
+				},
 			},
 			watch: {
 				n: function(a,b) {
