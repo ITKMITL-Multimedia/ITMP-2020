@@ -1,38 +1,62 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>The Members - ITKMITL Multimedia Programming 2563</title>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<link rel="stylesheet" type="text/css" href="lab.css">
 </head>
+
 <body>
 	<div id="app">
+		About
+		<h3>Driver Id : {{person.driverId}}</h3>
+		<h3>Url : {{person.url}}</h3>
+		<h3>Given Name : {{person.givenName}}</h3>
+		<h3>Family Name : {{person.familyName}}</h3>
+		<h3>Date Of Birth : {{person.dateOfBirth}}</h3>
+		<h3>Nationality : {{person.nationality}}</h3>
+
+		<h2 v-for="u in users" :data-id="u.driverId" @click="viewBio(u)">{{u.driverId}}</h2>
 		
 	</div>
-	
+
 
 	<script>
-		fetch('https://jsonplaceholder.typicode.com/users')
-		.then(response => response.json())
-		.then(json => {console.log(json)})
+		fetch('http://ergast.com/api/f1/drivers.json')
+			.then(response => response.json())
+			.then(json => {
+				console.log(json)
+				app.users = json.MRData.DriverTable.Drivers
+				app.person = app.users[0]
+			})
 		let app = new Vue({
 			el: '#app',
+			methods: {
+				viewBio: function (profile) {
+					this.person = profile
+				}
+			},
 			data: {
-				users :[],
-				person:{
-					id:0,
-					name:'..loading',
-					username:'..loading',
-					email:'..loading',
-					website:'..loading',
-					company:{
-						name : '..loading',
-					}
-				}	
+				person: [
+					{
+						"driverId": ".....",
+						"url": ".....",
+						"givenName": ".....",
+						"familyName": ".....",
+						"dateOfBirth": ".....",
+						"nationality": "....."
+					}],
+				users: []
 			}
 		})
 
+	//	function viewBio(profile) {
+	//	 	let id = profile.dataset.driverId;
+	//		
+	//	}
 	</script>
 </body>
+
 </html>
