@@ -55,6 +55,18 @@
 			methods: {
 				check: function(e){
 					console.log(e)
+					if (e == true) {
+						this.score ++ //ถูกเพื่มคะแนน
+						this.correct(); //เข้าฟังก์ชั่นcorrect
+					}else {
+						this.score -- //ผิดลดคะแนน
+						app.time -= 2 //ผิดลดเวลา
+					}
+				},
+				correct: function(e){
+					this.row += 1 //เพิ่มทุกๆครั้งที่ถูก
+					this.h = rand(0,359)
+					this.pick = rand(1, this.row * this.row)
 				}
 			}
 		})
