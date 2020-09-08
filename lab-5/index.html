@@ -84,6 +84,19 @@
 							}
 						}
 
+						//คิดคะแนน
+						if (this.fruits[i].pst == 11 || this.fruits[i].pst == 13) {
+							//เมื่อถูก
+							if (this.fruits[i].pst == this.fruits[i].type && this.fruits[i].run) {
+								this.score ++
+							}
+							//เมื่อผิด
+							else if (this.fruits[i].pst != this.fruits[i].type && this.fruits[i].run) {
+								this.play = false //จบเกม
+							}
+						}
+
+
 						//การขยับของfruit
 						let run = this.fruits[i].run
 						if (run) {
