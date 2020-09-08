@@ -74,12 +74,24 @@
 			computed:{},
 			watch:{
 				turn: function(){
-					let count = this.fruits.length
 					for(let i in this.fruits){
+						//ปุ่มtoggle
+						if (this.fruits[i].pst == 10){
+							if(this.isRightArrow == 1){
+								this.fruits[i].step = 3
+							}else{
+								this.fruits[i].step = 1
+							}
+						}else{
+							this.fruits[i].step = 1
+						}
+
+						//การขยับของfruit
 						let run = this.fruits[i].run
 						if (run) {
-							this.fruits[i].pst = this.fruits[i].pst +1
+							this.fruits[i].pst = this.fruits[i].pst + this.fruits[i].step //ขยับตาม step
 						}
+
 					}
 				}
 			}
