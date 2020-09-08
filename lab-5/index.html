@@ -47,12 +47,11 @@
 		
 		let fruitCount = 3
 		let isRightArrow = 1
-		let speed = 1000
 		let app = new Vue({
 			el:'#canvas',
 			data:{
 				isRightArrow: isRightArrow,
-				speed: speed,
+				speed: 1000,
 				play:true,
 				turn:0,
 				score:0,
@@ -120,18 +119,30 @@
 						}
 						newfruitId++;
 					}
+					//เพิ่มความเร็วเมื่อถึงระยะหนึ่ง
+					if (app.turn>15) {
+						app.speed = 850
+					}
+					if (app.turn>30) {
+						app.speed = 650
+					}
+					if (app.turn>60) {
+						app.speed = 450
+					}
+					if (app.turn>100) {
+						app.speed = 250
+					}
 				}
 			}
 		})
 
-		let playing  =setInterval(function(){
-			if(app.play){
+		//timespeed
+		setTimeout(function timespeed(){
+			if (app.play) {
 				app.turn++
+				setTimeout(timespeed, app.speed)
 			}
-			else{
-				clearInterval(playing) //จบเกมหยุดการกระทำทุกอย่าง
-			}
-		},speed)
+		},app.speed)
 	</script>
 </body>
 </html>
