@@ -96,6 +96,10 @@
 							}
 						}
 
+						//หยุดเขยับเมื่อถึงจุด
+						if (this.fruits[i].pst == 12 || this.fruits[i].pst == 16) {
+							this.fruits[i].run = false
+						}
 
 						//การขยับของfruit
 						let run = this.fruits[i].run
