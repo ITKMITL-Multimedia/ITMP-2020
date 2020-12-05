@@ -1,0 +1,21 @@
+#app {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(151, 247, 238, 0.3);
+    padding: 10px;
+    width: 45%;
+    border-radius: 5px;
+}
+.paper{
+    background-color: #E6F2F1;
+    
+}
+#firstbox{
+    margin: 10px;
+}
+#secondbox{
+    margin: 10px;
+}
