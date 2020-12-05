@@ -1,0 +1,44 @@
+h2{
+    cursor: pointer;
+}
+h2:hover{
+    color: slategray;
+}
+
+#header{
+    margin: 0;
+    background-color: sandybrown;
+    text-align: center;
+}
+h1{
+    margin: 0;
+    padding: 5px;
+}
+
+#child{
+    padding-left: 10px;
+}
+
+#about{
+    background-color: rgba(255, 231, 108, 0.3);
+    width: 20%;
+    position: absolute;
+    left: 60%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid sandybrown;
+}
+#picker{
+    background-color: rgba(255, 231, 108, 0.3);
+    width: 20%;
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid sandybrown;
+}
+
+body{
+    background-color: #F3F1E4;
+    font-family: 'Roboto', sans-serif
+}
